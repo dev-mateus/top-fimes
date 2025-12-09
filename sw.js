@@ -5,16 +5,16 @@
 
 const CACHE_NAME = 'top-fimes-v1';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/styles/styles.css',
-  '/scripts/main.js',
-  '/scripts/config.js',
-  '/scripts/api.js',
-  '/scripts/ui.js',
-  '/scripts/modal.js',
-  '/scripts/utils.js',
-  '/assets/placeholder.svg'
+  '.',
+  'index.html',
+  'styles/styles.css',
+  'scripts/main.js',
+  'scripts/config.js',
+  'scripts/api.js',
+  'scripts/ui.js',
+  'scripts/modal.js',
+  'scripts/utils.js',
+  'assets/placeholder.svg'
 ];
 
 // Install event - precache assets
@@ -124,7 +124,7 @@ self.addEventListener('fetch', (event) => {
             .catch(() => {
               // Fallback para placeholder se imagem falhar
               if (url.pathname.match(/\.(svg|png|jpg|jpeg|webp)$/)) {
-                return caches.match('/assets/placeholder.svg');
+                return caches.match('assets/placeholder.svg');
               }
               return new Response('Offline', {
                 status: 503,
