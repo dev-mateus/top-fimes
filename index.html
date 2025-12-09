@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Meta Tags Essenciais -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- SEO -->
+  <title>Top Filmes - Busca e Descubra Filmes Populares | IMDb API</title>
+  <meta name="description" content="Descubra os melhores filmes! Busque filmes por nome, veja informações do IMDb, sinopse, elenco e trailers. Aplicação web otimizada, acessível e rápida." />
+  <meta name="keywords" content="filmes, busca de filmes, IMDb, trailers, cinema, aplicação web" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Top Filmes - Busca e Descubra Filmes Populares" />
+  <meta property="og:description" content="Descubra os melhores filmes! Busque filmes por nome, veja informações do IMDb, sinopse, elenco e trailers." />
+  <meta property="og:image" content="/assets/placeholder.png" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Top Filmes - Busca de Filmes" />
+  <meta name="twitter:description" content="Descubra filmes populares com informações do IMDb, sinopse, elenco e trailers." />
+  <meta name="twitter:image" content="/assets/placeholder.png" />
+
+  <!-- Preconnect para otimização -->
+  <link rel="preconnect" href="https://www.omdbapi.com" />
+  <link rel="preconnect" href="https://m.media-amazon.com" />
+  <link rel="dns-prefetch" href="https://www.omdbapi.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='70' font-size='70' text-anchor='middle' fill='%23FF6B6B'>🎬</text></svg>" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles/styles.css" />
+
+  <!-- JSON-LD Schema.org - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Top Filmes",
+    "description": "Descubra e busque filmes populares com informações do IMDb",
+    "url": "https://example.com",
+    "applicationCategory": "MovieApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to main content link (acessibilidade) -->
+  <a href="#main-content" class="skip-to-main">Pular para conteúdo principal</a>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header__container">
+      <div class="header__logo">
+        <span class="header__emoji" aria-hidden="true">🎬</span>
+        <h1 class="header__title">Top Filmes</h1>
+      </div>
+      <nav class="header__nav" role="navigation" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#" class="nav__link nav__link--active">Início</a></li>
+          <li><a href="#search-section" class="nav__link">Buscar</a></li>
+          <li><a href="#popular-section" class="nav__link">Populares</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Search Section -->
+    <section id="search-section" class="search-section" aria-labelledby="search-title">
+      <div class="search-section__container">
+        <h2 id="search-title" class="search-section__title">Buscar Filmes</h2>
+        <p class="search-section__description">Digite o nome de um filme para buscar informações, sinopse, elenco e trailers.</p>
+
+        <!-- Search Form -->
+        <form id="search-form" class="search-form" role="search" novalidate>
+          <div class="search-form__group">
+            <label for="search-input" class="search-form__label">Título do Filme</label>
+            <div class="search-form__input-wrapper">
+              <input
+                type="search"
+                id="search-input"
+                class="search-form__input"
+                placeholder="Ex: Avengers, Batman, Inception..."
+                autocomplete="off"
+                aria-describedby="search-help"
+                aria-label="Buscar filmes por título"
+                maxlength="100"
+                spellcheck="false"
+              />
+              <button type="submit" class="search-form__button" id="search-btn" aria-label="Realizar busca">
+                <span aria-hidden="true">🔍</span>
+                <span class="search-form__button-text">Buscar</span>
+              </button>
+            </div>
+            <small id="search-help" class="search-form__help">Pressione Enter ou clique em Buscar. Mínimo 1 caractere.</small>
+          </div>
+
+          <!-- Results Count (aria-live) -->
+          <div id="results-count" class="results-count" role="status" aria-live="polite" aria-atomic="true">
+            Digite um termo para buscar filmes
+          </div>
+        </form>
+
+        <!-- Results Grid -->
+        <div id="results-container" class="results-grid" role="region" aria-label="Resultados de busca">
+          <!-- Cards renderizados aqui via JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination-container" class="pagination" role="navigation" aria-label="Paginação de resultados">
+          <!-- Botões de paginação renderizados aqui -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Section (Landing) -->
+    <section id="popular-section" class="popular-section" aria-labelledby="popular-title">
+      <div class="popular-section__container">
+        <h2 id="popular-title" class="popular-section__title">Filmes Populares</h2>
+        <p class="popular-section__description">Uma seleção de filmes em destaque para você explorar.</p>
+
+        <!-- Popular Grid (inicial, depois substitui com resultados da busca) -->
+        <div id="main-content" class="popular-grid" role="region" aria-label="Filmes populares">
+          <!-- Cards renderizados aqui via JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Loading Indicator (sr-only) -->
+  <div id="loading-indicator" class="sr-only" aria-live="assertive" aria-atomic="true" role="status">
+    <!-- Status de carregamento aqui -->
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__container">
+      <p class="footer__credit">
+        🎬 <strong>Top Filmes</strong> - Dados fornecidos pela 
+        <a href="https://www.omdbapi.com/" target="_blank" rel="noopener noreferrer">
+          OMDb API
+        </a>
+      </p>
+      <p class="footer__note">
+        Aplicação web otimizada para Performance, Acessibilidade, Best Practices e SEO (Lighthouse ≥ 95).
+      </p>
+      <p class="footer__credit" style="font-size: 0.85rem; margin-top: 1rem;">
+        <a href="#" class="footer__link">Privacidade</a> | 
+        <a href="#" class="footer__link">Termos</a> | 
+        <a href="#" class="footer__link">Contato</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal Container (será criado dinamicamente via JS, mas aqui como placeholder) -->
+  <!-- O modal será inserido via main.js -->
+
+  <!-- Scripts -->
+  <script type="module" src="/scripts/main.js"></script>
+
+  <!-- Service Worker Registration (Performance + Offline) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('Service Worker registrado:', registration);
+          })
+          .catch(error => {
+            console.warn('Erro ao registrar Service Worker:', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!-- Este é um SVG que será servido como fallback. 
+Para uso em produção, converta para PNG real. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" width="300" height="450">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="450" fill="url(#grad)"/>
+  
+  <!-- Decorative Border -->
+  <rect x="10" y="10" width="280" height="430" fill="none" stroke="#ff6b6b" stroke-width="2" rx="8"/>
+  
+  <!-- Film Strip Pattern -->
+  <circle cx="30" cy="30" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="75" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="120" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="165" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="210" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="255" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="300" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="345" r="8" fill="#ff6b6b"/>
+  <circle cx="30" cy="390" r="8" fill="#ff6b6b"/>
+  
+  <circle cx="270" cy="30" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="75" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="120" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="165" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="210" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="255" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="300" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="345" r="8" fill="#ff6b6b"/>
+  <circle cx="270" cy="390" r="8" fill="#ff6b6b"/>
+  
+  <!-- Film Reel Icon -->
+  <circle cx="150" cy="150" r="60" fill="none" stroke="#ff6b6b" stroke-width="3"/>
+  <circle cx="150" cy="150" r="40" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+  <circle cx="150" cy="150" r="20" fill="#ff6b6b"/>
+  
+  <!-- Play Button -->
+  <polygon points="140,135 140,165 170,150" fill="#ffffff"/>
+  
+  <!-- Text: Poster Not Available -->
+  <rect x="40" y="250" width="220" height="80" fill="rgba(255, 255, 255, 0.05)" rx="8"/>
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ff6b6b" text-anchor="middle">
+    Pôster Indisponível
+  </text>
+  <text x="150" y="310" font-family="Arial, sans-serif" font-size="14" fill="#b0b0b0" text-anchor="middle">
+    Clique para ver detalhes
+  </text>
+  <text x="150" y="330" font-family="Arial, sans-serif" font-size="12" fill="#808080" text-anchor="middle">
+    OMDb API
+  </text>
+</svg>
