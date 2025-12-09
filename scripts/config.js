@@ -4,7 +4,7 @@
  */
 
 // ⚠️ LOCAL DEVELOPMENT: Set your API key here
-// PRODUCTION: Uses GitHub Secrets (see .github/workflows/deploy.yml)
+// PRODUCTION: Uses GitHub Secrets (injected by GitHub Actions workflow)
 export const OMDB_API_KEY = 'YOUR_API_KEY_HERE';
 export const OMDB_BASE_URL = 'https://www.omdbapi.com/';
 
