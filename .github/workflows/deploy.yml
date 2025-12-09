@@ -9,6 +9,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -24,9 +27,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject API Key
+      - name: Inject API Key from Secret
         run: |
-          sed -i "s/export const OMDB_API_KEY = 'YOUR_API_KEY_HERE'/export const OMDB_API_KEY = '${{ secrets.OMDB_API_KEY }}'/" scripts/config.js
+          sed -i "s/YOUR_API_KEY_HERE/${{ env.OMDB_API_KEY }}/" scripts/config.js
+        env:
+          OMDB_API_KEY: ${{ secrets.OMDB_API_KEY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
