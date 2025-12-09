@@ -434,7 +434,9 @@ section h2 {
 
 /* ==================== GRID ==================== */
 
-.grid {
+.grid,
+.results-grid,
+.popular-grid {
   display: grid;
   gap: var(--space-6);
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -443,14 +445,18 @@ section h2 {
 }
 
 @media (min-width: 640px) {
-  .grid {
+  .grid,
+  .results-grid,
+  .popular-grid {
     gap: var(--space-8);
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .grid {
+  .grid,
+  .results-grid,
+  .popular-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
@@ -501,8 +507,9 @@ section h2 {
   margin-bottom: var(--space-2);
   line-height: var(--line-height-tight);
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   overflow: hidden;
 }
 
